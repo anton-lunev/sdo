@@ -1,0 +1,210 @@
+@import url(./spinner.less);
+
+.sympathy-popup {
+    background: rgba(0, 0, 0, .85);
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding-top: 13px;
+    text-align: center;
+    color: #fff;
+    visibility: hidden;
+    transition: all .2s;
+    opacity: 0;
+
+    &--show {
+        visibility: visible;
+        opacity: 1;
+
+        .sympathy-popup__title {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .sympathy-popup__button--yes {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .sympathy-popup__button--no {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .sympathy-popup__next-user {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .sympathy-popup__queue {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    &__user {
+        position: relative;
+        width: 220px;
+        margin: 27px auto 12px auto;
+    }
+    &__user-photo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: solid 6px #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        background: center no-repeat;
+        background-size: cover;
+        margin-bottom: 7px;
+    }
+    &__question{
+        opacity: 1;
+        height: 205px;
+
+        &--hide {
+            transition: all .5s .7s;
+            opacity: 0;
+            height: 0;
+
+            .sympathy-popup__title {
+                transform: translateY(-15px);
+                opacity: 0;
+            }
+            .sympathy-popup__button--yes {
+                transition: all .5s .3s;
+                transform: scale(.5);
+                opacity: 0;
+            }
+            .sympathy-popup__button--no {
+                transition: all .5s .4s;
+                transform: scale(.5);
+                opacity: 0;
+            }
+        }
+    }
+    &__title {
+        font-size: 42px;
+        font-weight: normal;
+        margin: 0 0 30px 0;
+        transition: all .5s;
+        transform: translateY(-15px);
+    }
+    &__buttons {
+        text-align: center;
+    }
+    &__button {
+        display: inline-block;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        font-size: 30px;
+        box-sizing: border-box;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+        margin: 0 9px;
+        box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 3px 7px rgba(0, 0, 0, 0.6);
+        background: url("/img/glass.png") no-repeat;
+        cursor: pointer;
+
+        //animation
+        transform: scale(.7);
+        opacity: 0;
+
+        &--yes {
+            transition: transform .5s .3s, opacity .5s .3s, background-color .3s;
+            background-color: #4ebd33;
+            background-position: -16px -14px;
+
+            &:hover {
+                background-color: lighten(#4ebd33, 7%);
+            }
+            &:active {
+                background-color: darken(#4ebd33, 7%);
+            }
+        }
+        &--no {
+            transition: transform .5s .4s, opacity .5s .4s, background-color .3s;
+            background-color: #c12323;
+            background-position: -5px -14px;
+
+            &:hover {
+                background-color: lighten(#c12323, 7%);
+            }
+            &:active {
+                background-color: darken(#c12323, 7%);
+            }
+        }
+    }
+
+    &__next-user {
+        width: 408px;
+        margin: 99px auto 22px auto;
+
+        //animation
+        transition: all .5s .7s;
+        transform: translateY(-15px);
+        opacity: 0;
+    }
+    &__queue {
+        font-size: 18px;
+        color: #8b7d92;
+
+        //animation
+        transition: all .5s .9s;
+        transform: translateX(-15px);
+        opacity: 0;
+    }
+    &__queue-users {
+        color: #fff;
+    }
+}
+
+.popup-next-user {
+    box-sizing: border-box;
+    height: 100px;
+    padding: 10px;
+    background: rgba(119, 102, 127, 0.7);
+    border-radius: 50px;
+    text-align: left;
+
+    &__photo-wrapper {
+        overflow: hidden;
+        border-radius: 50%;
+        float: left;
+    }
+    &__photo {
+        width: 80px;
+        height: 80px;
+        background: center no-repeat;
+        background-size: cover;
+        filter: blur(1px);
+    }
+    &__info {
+        margin: 3px 0 0 95px;
+    }
+    &__info-title {
+        color: #ae99ac;
+        font-size: 16px;
+        margin-bottom: 1px;
+
+        &--result {
+            font-size: 26px;
+            margin-bottom: 1px;
+            padding: 26px 0 0;
+            text-align: center;
+        }
+    }
+    &__info-user {
+        font-size: 24px;
+        color: #dac7db;
+    }
+    &__info-time {
+        color: #fff;
+    }
+    &__info-timer {
+        font-weight: bold;
+    }
+    &__spinner {
+        float: left;
+    }
+}

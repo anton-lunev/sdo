@@ -1,0 +1,20 @@
+<div class="mutual-sympathy">
+    {{#if data.length}}
+        <h1 class="mutual-sympathy__title">Люди, которым вы понравились</h1>
+
+        <div class="mutual-sympathy__user-list">
+            {{#each data}}
+                <a href="//vk.com/id{{viewer_id}}" target="_blank" class="mutual-sympathy__user">
+                    <div class="mutual-sympathy__user-photo" style="background-image: url('{{photo}}')"></div>
+                    <div class="mutual-sympathy__user-name">{{name}}</div>,
+                    <div class="meeting-block__user-age"> {{age}}</div>
+                </a>
+            {{/each}}
+        </div>
+    {{else}}
+        <h1 class="mutual-sympathy__title mutual-sympathy__title--center">У Вас нет взаимных симпатий :(</h1>
+    {{/if}}
+
+    <button type="button" class="mutual-sympathy__button-home">На главную</button>
+</div>
+

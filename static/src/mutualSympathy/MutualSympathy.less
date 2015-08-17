@@ -1,0 +1,109 @@
+.mutual-sympathy {
+    background: url("/img/bg_wood.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding-top: 15px;
+    text-align: center;
+    color: #fff;
+
+    &__title {
+        font-size: 42px;
+        font-weight: normal;
+        text-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+
+        &--center {
+            padding-top: 200px;
+            margin-bottom: 70px;
+        }
+    }
+
+    &__user-list {
+        text-align: center;
+    }
+
+    &__user {
+        display: inline-block;
+        position: relative;
+        width: 220px;
+        margin: 33px;
+        text-align: center;
+        color: #fff;
+        font-size: 22px;
+        font-family: "Tahoma", sans-serif;
+
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            opacity: .6;
+        }
+        &:nth-child(3n+1):after {
+            width: 104px;
+            height: 94px;
+            background: url("/img/heart_1.svg") center no-repeat;
+            top: 2px;
+            left: -54px;
+        }
+        &:nth-child(3n+2):after {
+            width: 73px;
+            height: 72px;
+            background: url("/img/heart_3.svg") center no-repeat;
+            bottom: 40px;
+            right: -22px;
+        }
+        &:nth-child(3n+3):after {
+            width: 104px;
+            height: 94px;
+            background: url("/img/heart_2.svg") center no-repeat;
+            top: -29px;
+            right: -11px;
+        }
+    }
+
+    &__user-photo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: solid 6px #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        background: url("http://cs617122.vk.me/v617122363/11dd0/VoXuUWyPLCA.jpg") center no-repeat;
+        background-size: cover;
+        margin-bottom: 7px;
+        position: relative;
+        z-index: 1;
+    }
+    &__user-name {
+        display: inline-block;
+        text-decoration: underline;
+
+        max-width: 180px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: top;
+    }
+    &__user-age {
+        display: inline-block;
+    }
+
+    &__button-home {
+        background: #da3e67;
+        color: #fff;
+        font-size: 26px;
+        padding: 14px 57px 10px 57px;
+        border-radius: 120px;
+        transition: all .2s;
+
+        &:hover {
+            background-color: #ea5179;
+        }
+        &:active {
+            background-color: #c92e56;
+            box-shadow: inset 0 2px rgba(0, 0, 0, 0.2);
+        }
+    }
+}

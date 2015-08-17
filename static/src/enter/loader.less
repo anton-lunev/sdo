@@ -1,0 +1,36 @@
+@loader-size: 28px;
+@loader-border-width: 7px;
+@loader-color: #fff;
+@loader-speed: 1.4s;
+
+.loader {
+    text-align: center;
+
+    &__bounce {
+        margin: 3px;
+        width: @loader-size;
+        height: @loader-size;
+        background-color: @loader-color;
+
+        border-radius: 100%;
+        display: inline-block;
+        animation: bouncedelay @loader-speed infinite ease-in-out;
+        animation-fill-mode: both;
+
+        &--1 {
+            animation-delay: -0.32s;
+        }
+        &--2 {
+            animation-delay: -0.16s;
+        }
+    }
+}
+
+@keyframes bouncedelay {
+    0%, 80%, 100% {
+        transform: scale(0.0);
+    }
+    40% {
+        transform: scale(1.0);
+    }
+}

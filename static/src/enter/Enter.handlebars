@@ -1,0 +1,40 @@
+<div class="enter-block {{#unless animated}}enter-block--animation{{/unless}}">
+    <div class="enter-block__logo"></div>
+    {{#unless error}}
+        <ul class="enter-block__list">
+            <li class="enter-block__list-item enter-block__list-item--time">{{time}}</li>
+
+            {{#unless isSigned}}
+                {{#if freeRegister}}
+                    <li class="enter-block__list-item enter-block__list-item--price">Встреча<br/>бесплатна</li>
+                {{else}}
+                    <li class="enter-block__list-item enter-block__list-item--price">Встреча всего за <br/>{{price}}</li>
+                {{/if}}
+            {{/unless}}
+
+            <li class="enter-block__list-item enter-block__list-item--filter">
+                {{yearsMin}}-{{yearsMax}} лет,<br/> {{cityName}}
+            </li>
+        </ul>
+    {{/unless}}
+
+    {{#if cantBuy}}
+        <button class="enter-block__button enter-block__button--inactive">{{{message}}}</button><br/>
+        {{#if updateButton}}
+            <button class="enter-block__button enter-block__button--second enter-block__button--update">
+                Обновить
+            </button>
+        {{/if}}
+        {{#if closeAnotherTabButton}}
+            <button class="enter-block__button enter-block__button--second enter-block__button--close-another">
+                Выйти в другом окне
+            </button>
+        {{/if}}
+    {{else}}
+        <button class="enter-block__button enter-block__button--active">Записаться</button>
+        <br/>
+        <button class="enter-block__about">Как это работает?</button>
+    {{/if}}
+
+</div>
+

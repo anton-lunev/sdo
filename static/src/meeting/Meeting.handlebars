@@ -1,0 +1,32 @@
+<div class="meeting-block">
+    {{#if currentUser}}
+        <div class="meeting-block__user">
+            <div class="meeting-block__user-photo" style="background-image: url('{{currentUser.photo}}')"></div>
+            <div class="meeting-block__user-name-row">
+                <div class="meeting-block__user-name">{{currentUser.name}}</div>,
+                <div class="meeting-block__user-age"> {{currentUser.age}}</div>
+            </div>
+        </div>
+
+        <div class="meeting-block__chat">
+            <div class="meeting-chat">
+                <div class="meeting-chat__messages-wrapper">
+                    <div class="meeting-chat__messages">
+                        <div class="chat-messages">
+
+                        </div>
+                    </div>
+                </div>
+                <form class="meeting-chat__input-wrapper" id="meeting-chat-form">
+                    <input type="text" class="meeting-chat__input" value="" placeholder="Ваше сообщение" maxlength="300"/>
+                    <button type="submit" class="meeting-chat__input-send"></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="meeting-block__timer-wrapper">
+            До конца общения осталось <span class="meeting-block__timer">0:00</span>
+        </div>
+    {{/if}}
+</div>
+

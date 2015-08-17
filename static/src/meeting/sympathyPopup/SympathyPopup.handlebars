@@ -1,0 +1,26 @@
+<div class="sympathy-popup">
+    {{#if currentUser}}
+        <div class="sympathy-popup__user">
+            <div class="sympathy-popup__user-photo" style="background-image: url('{{currentUser.photo}}')"></div>
+        </div>
+        <div class="sympathy-popup__question">
+            <h1 class="sympathy-popup__title">Понравилось ли вам общаться?</h1>
+            <div class="sympathy-popup__buttons">
+                <button class="sympathy-popup__button sympathy-popup__button--yes">Да</button>
+                <button class="sympathy-popup__button sympathy-popup__button--no">Нет</button>
+            </div>
+        </div>
+    {{/if}}
+
+    <div class="sympathy-popup__next-user">
+        <div class="popup-next-user">
+
+        </div>
+    </div>
+    {{#if queueList}}
+        <div class="sympathy-popup__queue">В очереди:
+            <span class="sympathy-popup__queue-users">{{queueList}}</span>
+        </div>
+    {{/if}}
+</div>
+

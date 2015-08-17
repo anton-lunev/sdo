@@ -1,0 +1,21 @@
+{{#if nextUser}}
+    <div class="popup-next-user__photo-wrapper">
+        <div class="popup-next-user__photo" style="background-image: url('{{nextUser.photo}}')"></div>
+    </div>
+    <div class="popup-next-user__info">
+        <div class="popup-next-user__info-title">
+            {{#if currentUser}}
+                Следующий собеседник:
+            {{else}}
+                Ваш собеседник:
+            {{/if}}
+        </div>
+        <div class="popup-next-user__info-user">{{nextUser.name}}, {{nextUser.age}}</div>
+        <div class="popup-next-user__info-time">До начала общения осталось
+            <span class="popup-next-user__info-timer">0:00</span>
+        </div>
+    </div>
+{{else}}
+    <div class="spinner popup-next-user__spinner"></div>
+    <div class="popup-next-user__info-title--result">Ожидаем результаты</div>
+{{/if}}

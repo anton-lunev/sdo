@@ -1,0 +1,291 @@
+@keyframes beat {
+    from {transform: scale(.8);}
+    to {transform: scale(1);}
+}
+
+.meeting-block {
+    background: url("/img/bg_wood.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 40px;
+    text-align: center;
+
+    &__user {
+        position: relative;
+        width: 220px;
+        margin: 0 auto 30px auto;
+        text-align: center;
+        color: #fff;
+        font-size: 22px;
+        font-family: "Tahoma", sans-serif;
+        //animation
+        transition: all .4s;
+        opacity: 0;
+        transform: scale(.8);
+
+        &:after, &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            opacity: .6;
+        }
+        &:before {
+            width: 104px;
+            height: 94px;
+            background: url("/img/heart_1.svg") center no-repeat;
+            top: -29px;
+            left: -100px;
+
+            //animation
+            transition: all .6s 1.5s;
+            opacity: 0;
+            transform: translateX(50px) translateY(50px);
+        }
+        &:after {
+            width: 73px;
+            height: 66px;
+            background: url("/img/heart_2.svg") center no-repeat;
+            top: 7px;
+            right: -78px;
+
+            //animation
+            transition: all .6s 1.7s;
+            opacity: 0;
+            transform: translateX(-50px) translateY(50px);
+        }
+    }
+    &__user-photo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: solid 6px #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        background: center no-repeat;
+        background-size: cover;
+        margin-bottom: 7px;
+        position: relative;
+        z-index: 1;
+    }
+    &__user-name-row {
+        //animation
+        transition: all .4s .4s;
+        opacity: 0;
+        transform: translateY(-20px);
+        vertical-align: top;
+    }
+    &__user-name {
+        display: inline-block;
+        text-decoration: underline;
+
+        max-width: 180px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    &__user-age {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    &__chat {
+        width: 560px;
+        margin: 0 auto 45px auto;
+    }
+
+    &__timer-wrapper {
+        display: inline-block;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 7px 29px 5px;
+        border-radius: 16px;
+
+        //animation
+        transition: all .6s 1.2s;
+        opacity: 0;
+        transform: scale(.8);
+    }
+
+    &__timer {
+        font-weight: bold;
+        &--beat {
+            animation: beat 1s infinite;
+        }
+    }
+
+
+    //Animation block
+    &--show {
+        .meeting-block {
+            &__user {
+                opacity: 1;
+                transform: scale(1);
+
+                &:after, &:before {
+                    opacity: 1;
+                    transform: translateX(0) translateY(0);
+                }
+            }
+            &__user-name-row {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            &__timer-wrapper {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+.meeting-chat {
+    &__messages-wrapper {
+        background: #fff;
+        box-shadow: inset 0 1px 2px #55412d, 0 -1px 0 rgba(255, 255, 255, 0.29);
+        border-radius: 3px;
+        height: 240px;
+        margin-bottom: 13px;
+        padding: 3px 10px 1px 10px;
+        position: relative;
+        z-index: 1;
+
+        //animation
+        transition: all .4s .6s;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    &__messages {
+        overflow: auto;
+        height: 100%;
+    }
+    &__input-wrapper {
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        //animation
+        transition: all .6s .8s;
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    &__input {
+        @bg: #e7ded5;
+        float: left;
+        background: @bg;
+        box-shadow: inset 0 1px 3px #7c715f, 0 -1px 0 rgba(255, 255, 255, 0.29);
+        width: 511px;
+        font-size: 18px;
+        color: #66625a;
+        padding: 10px 17px 8px 17px;
+        border-radius: 2px;
+        box-sizing: border-box;
+        transition: all .3s;
+
+        &:focus {
+            background: lighten(@bg, 5%);
+        }
+    }
+    &__input-send {
+        float: right;
+        background: url("/img/send.svg") center no-repeat #da3e67;
+        background-size: 24px;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        transition: all .2s;
+
+        &:hover {
+            background-color: #ea5179;
+        }
+        &:active {
+            background-color: #c92e56;
+            box-shadow: inset 0 2px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+.meeting-block--show {
+    .meeting-chat {
+        &__messages-wrapper, &__input-wrapper {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.chat-messages {
+    padding: 10px;
+
+    &__item-wrapper {
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+    &__item {
+        font-size: 18px;
+        padding: 8px 15px 9px 15px;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        max-width: 275px;
+        text-align: left;
+        @triangle_size: 8px;
+        transform: translateY(15px);
+        opacity: 0;
+        transition: all .3s;
+
+        &--show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        &--left {
+            float: left;
+            background: #f26f91;
+            color: #fff;
+            position: relative;
+            border-bottom-left-radius: 0;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                left: -@triangle_size;
+                bottom: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 0 @triangle_size @triangle_size;
+                border-color: transparent transparent #f26f91 transparent;
+            }
+        }
+        &--right {
+            float: right;
+            background: #f2e2e6;
+            color: #933b52;
+            position: relative;
+            border-bottom-right-radius: 0;
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                right: -@triangle_size;
+                bottom: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: @triangle_size 0 0 @triangle_size;
+                border-color: transparent transparent transparent #f2e2e6;
+            }
+        }
+    }
+    &__item-inner {
+        overflow: hidden;
+    }
+}

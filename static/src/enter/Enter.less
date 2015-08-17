@@ -1,0 +1,118 @@
+@import url(../mixins.less);
+@import url(./loader.less);
+
+.enter-block {
+    background: url("/img/bg_coffee.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 100px;
+    text-align: center;
+
+    &__logo {
+        background: url("/img/logo.png") no-repeat;
+        background-size: contain;
+        width: 439px;
+        height: 121px;
+        margin: 0 auto 46px auto;
+    }
+    &__loading {
+        padding-top: 50px;
+    }
+    &__list {
+        color: #fff;
+        margin-bottom: 44px;
+    }
+    &__list-item {
+        display: inline-block;
+        width: 230px;
+        padding-top: 130px;
+        background-repeat: no-repeat;
+        background-position: top center;
+        font-size: 26px;
+        margin: 0 10px;
+
+        //animation
+        transition: all .6s;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+
+        &--time {
+            background-image: url("/img/time.svg");
+            transition-delay: 0s;
+        }
+        &--price {
+            background-image: url("/img/money.svg");
+            transition-delay: .2s;
+        }
+        &--filter {
+            background-image: url("/img/users.svg");
+            transition-delay: .4s;
+        }
+    }
+    &__button {
+        color: #fff;
+        font-size: 26px;
+        padding: 14px 57px 10px 57px;
+        border-radius: 120px;
+
+        //animation
+        transition: transform .6s .8s, opacity .6s .8s, background .4s;
+        opacity: 1;
+        transform: scale(1);
+
+        &--active, &--second {
+            @bg_start: #8755ac;
+            @bg_end: #724892;
+
+            .bg(@bg_start, @bg_end);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 3px 0 7px rgba(8, 8, 8, 0.6);
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+            &:hover {
+                .bg(lighten(@bg_start, 5%), lighten(@bg_end, 5%));
+            }
+            &:active {
+                .bg(darken(@bg_start, 3%), darken(@bg_end, 3%));
+                box-shadow: inset 0 1px 3px rgba(0,0,0, 0.4), 3px 0 7px rgba(8, 8, 8, 0.6);
+            }
+        }
+        &--second {
+            margin-top: 60px;
+        }
+
+        &--inactive {
+            background: rgba(133, 112, 149, 0.5);
+            color: #c9bad6;
+            cursor: default;
+        }
+    }
+
+    &__about {
+        background: none;
+        margin-top: 15px;
+        color: #fff;
+        border-bottom: dotted 1px #fff;
+        padding: 0;
+        opacity: 1;
+        transform: translateY(0);
+        transition: all .6s 1.3s;
+    }
+
+    &--animation {
+        .enter-block {
+            &__list-item {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            &__button {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+            &__about {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+        }
+    }
+}
+

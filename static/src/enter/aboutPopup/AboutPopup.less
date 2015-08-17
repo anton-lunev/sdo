@@ -1,0 +1,67 @@
+.about-popup {
+    background: rgba(0, 0, 0, .45);
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    visibility: hidden;
+    transition: all .5s;
+    opacity: 0;
+    color: #fff;
+    overflow: auto;
+
+    &--show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__close {
+        position: fixed;
+        right: 20px;
+        top: 22px;
+        cursor: pointer;
+        font-size: 65px;
+        line-height: 32px;
+        transition: all .2s;
+
+        &:hover {
+            transform: scale(.85);
+        }
+    }
+
+    &__body {
+        width: 550px;
+        margin: auto;
+        padding-bottom: 40px;
+        transition: transform .3s, opacity .2s;
+        transform: translateY(-25px);
+        text-align: center;
+    }
+    &--show  &__body{
+        transition: all .5s .3s;
+        transform: translateY(0);
+    }
+
+    &__title {
+        text-align: center;
+    }
+    &__text {
+        font-size: 19px;
+    }
+    &__img {
+        width: 230px;
+        height: 180px;
+        margin: 0 auto;
+        background-position: center;
+        border-radius: 3px;
+        background-size: cover;
+        transition: all .25s;
+
+        &:hover {
+            transform: scale(2);
+        }
+    }
+}
