@@ -1,6 +1,3 @@
-/**
- * @author "Evgeny Reznichenko" <kusakyky@gmail.com>
- */
 var
     webpack = require('webpack'),
     p = require('path'),
